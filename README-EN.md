@@ -20,7 +20,7 @@
 [![X](https://img.shields.io/badge/X-Follow-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/mirofish_ai)
 [![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/mirofish_ai/)
 
-[English](./README-EN.md) | [中文文档](./README.md)
+[English](./README-EN.md) | [中文文档](./README.md) | [Deutsch: VS Code + GitHub Copilot Guide](./docs/VS-CODE-COPILOT-DE.md)
 
 </div>
 
@@ -92,6 +92,8 @@ Click the image to watch MiroFish's deep prediction of the lost ending based on 
 5. **Deep Interaction**: Chat with any agent in the simulated world & Interact with ReportAgent
 
 ## 🚀 Quick Start
+
+> Working in a locked-down enterprise environment and cannot install the full stack? See the lightweight German guide for running the same multi-agent principle in VS Code with GitHub Copilot: [VS Code + GitHub Copilot Guide](./docs/VS-CODE-COPILOT-DE.md)
 
 ### Option 1: Source Code Deployment (Recommended)
 
