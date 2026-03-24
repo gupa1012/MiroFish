@@ -202,6 +202,75 @@ Der wichtigste Punkt ist dabei **Rollenklarheit**. Schon wenige Rollen funktioni
 - definierte Eingaben nutzt
 - ein festes Ausgabeformat produziert
 
+## Dynamische Zusatz-Agents je nach Simulationsart
+
+Die 5 Basisrollen sind bewusst nur das **Grundgerüst**. Wenn dein Usecase mehr Perspektiven braucht, kannst du zusätzliche Agents ergänzen.
+
+Das ist besonders sinnvoll bei:
+
+- **Prozesssimulationen**
+- **mehrstufigen Freigaben**
+- **Verhandlungen mit mehreren Beteiligten**
+- **Organisations- oder Eskalationsabläufen**
+
+### Beispiel: Prozesssimulation mit Beteiligten-Agents
+
+Wenn du analysieren willst, wie Teilprozesse ineinandergreifen, gib **jedem relevanten Prozessbeteiligten einen eigenen Agent**.
+
+Zum Beispiel:
+
+- `agents/einkauf.md`
+- `agents/fachbereich.md`
+- `agents/freigabe.md`
+- `agents/logistik.md`
+
+Dann bleibt die Basispipeline erhalten:
+
+1. **Planner** zerlegt den Gesamtprozess
+2. **World Builder** modelliert Rollen, Übergaben und Abhängigkeiten
+3. **Beteiligten-Agents** beschreiben ihre Sicht, Ziele, Engpässe und Reaktionen
+4. **Simulator** setzt alles zu einem Ablauf oder mehreren Szenarien zusammen
+5. **Critic** sucht Brüche, unrealistische Annahmen und fehlende Schnittstellen
+6. **Reporter** fasst Risiken, Bottlenecks und Verbesserungsvorschläge zusammen
+
+### Praktische Regel
+
+Füge zusätzliche Agents **nicht pauschal**, sondern nur dann hinzu, wenn eine eigene Perspektive wirklich einen Unterschied macht.
+
+Eine gute Faustregel:
+
+- **Basisrollen** = immer
+- **Zusatz-Agents** = je nach Usecase
+
+Jeder Zusatz-Agent sollte wieder dasselbe Muster einhalten:
+
+1. **klarer Auftrag**
+2. **definierte Eingaben** (`seed.md`, `world.md`, `tasks.md` oder Teilprozessdaten)
+3. **festes Ausgabeformat**
+
+### Mini-Beispiel für einen Beteiligten-Agent
+
+#### `agents/einkauf.md`
+
+```md
+Du bist der Agent für den Einkauf.
+Betrachte den beschriebenen Prozess ausschließlich aus Sicht des Einkaufs.
+
+Nutze:
+- seed.md
+- world.md
+- tasks.md
+
+Liefere:
+1. Ziele des Einkaufs
+2. benötigte Vorbedingungen
+3. typische Verzögerungen oder Konflikte
+4. Auswirkungen auf nachgelagerte Teilprozesse
+5. erkennbare Warnsignale
+```
+
+So bleibt das Setup leichtgewichtig, aber du kannst es trotzdem sehr flexibel an verschiedene Simulationsarten anpassen.
+
 ## Empfehlung für Enterprise- und Security-Umgebungen
 
 Wenn Sicherheit bei euch der limitierende Faktor ist, starte so einfach wie möglich:

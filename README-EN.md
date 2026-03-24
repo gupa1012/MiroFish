@@ -47,6 +47,21 @@ Then run the workflow in Copilot Chat:
 5. Ask the Critic to challenge the assumptions
 6. Ask the Reporter to summarize the outcome in `report.md`
 
+## Extending the base agents for each simulation type
+
+You are not limited to the five base roles.
+
+If a simulation needs additional viewpoints, add use-case-specific agents. For a **process simulation**, each participant can get its own agent so you can see how subprocesses interact, where handoffs fail, and where incentives or constraints conflict.
+
+Example:
+
+- `agents/procurement.md`
+- `agents/business-owner.md`
+- `agents/approval.md`
+- `agents/logistics.md`
+
+The same rule still applies: **clear role, clear inputs, clear output format**.
+
 ## What was archived?
 
 The previous, heavier landing-page style documentation from the original MiroFish project has been archived so that the root README stays short and practical.

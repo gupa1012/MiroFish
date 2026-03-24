@@ -73,6 +73,21 @@ copilot-sim/
 - fasst die Ergebnisse zusammen
 - priorisiert Risiken, Signale und Empfehlungen
 
+## Flexible Agentenrollen je nach Usecase
+
+Die 5 Basisrollen sind der Startpunkt, aber **nicht** die Obergrenze.
+
+Wenn deine Simulation zusätzliche Perspektiven braucht, kannst du je nach Usecase weitere Agents ergänzen. Bei einer **Prozesssimulation** kann zum Beispiel **jeder Prozessbeteiligte einen eigenen Agent** bekommen, damit sichtbar wird, wie Teilprozesse ineinandergreifen, wo Übergaben scheitern und welche Interessen kollidieren.
+
+Beispiel:
+
+- `agents/einkauf.md`
+- `agents/fachbereich.md`
+- `agents/freigabe.md`
+- `agents/logistik.md`
+
+Das Prinzip bleibt gleich: **klare Rolle, klare Eingaben, klares Ausgabeformat**.
+
 ## Konkreter Ablauf in VS Code
 
 1. Schreibe dein Material in `seed.md`.
@@ -126,7 +141,8 @@ Wenn du **heute** starten willst, beginne mit:
 - `world.md`
 - `tasks.md`
 - `report.md`
-- 5 Rollen-Dateien unter `agents/`
+- 5 Basisrollen-Dateien unter `agents/`
+- bei Bedarf zusätzliche Usecase-Agents pro Beteiligtem oder Teilprozess
 
 Die ausführlichere deutsche Anleitung mit Beispiel-Prompts findest du hier:
 
