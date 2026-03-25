@@ -1,78 +1,77 @@
-# MiroFish – lightweight entry point
+# MiroFish – start immediately
 
-This repository is now oriented toward a **lightweight VS Code + GitHub Copilot workflow** instead of pushing new users straight into the original full-stack setup.
-
-If you cannot install the original project in a restricted enterprise environment, start with a small set of agent roles, a few markdown files, and Copilot as the coordinator.
+This repository contains a **ready-to-use simulation template** with 5 agent roles and an example scenario. You can start right away.
 
 ## Quick links
 
-- **German lightweight guide:** [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md)
-- **Archive of the original project docs:** [docs/archive/README.md](./docs/archive/README.md)
-- **Archived original README (中文):** [docs/archive/README-original-zh.md](./docs/archive/README-original-zh.md)
-- **Archived original README (English):** [docs/archive/README-original-en.md](./docs/archive/README-original-en.md)
-- **German README:** [README.md](./README.md)
+| What | Where |
+|------|-------|
+| **Start simulation** | [simulation/](./simulation/) |
+| Detailed guide (German) | [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md) |
+| German README | [README.md](./README.md) |
+| Archive (old full-stack code & docs) | [docs/archive/](./docs/archive/) |
 
-## Recommended lightweight workflow
+## 3-minute start
 
-Create a workspace like this:
+1. **Open VS Code**, enable GitHub Copilot.
+2. Open the `simulation/` folder – everything is ready.
+3. Read `seed.md` or fill in your own data.
+4. Open Copilot Chat and work through the roles step by step:
+
+| Step | Role | Prompt template |
+|------|------|-----------------|
+| 1 | **Planner** | Open `agents/planner.md`, give Copilot the content as instruction |
+| 2 | **World Builder** | `agents/world-builder.md` → put result into `world.md` |
+| 3 | **Simulator** | `agents/simulator.md` → generate 3 scenarios |
+| 4 | **Critic** | `agents/critic.md` → challenge the scenarios |
+| 5 | **Reporter** | `agents/reporter.md` → write result into `report.md` |
+
+## What's in `simulation/`?
 
 ```text
-copilot-sim/
-  seed.md
-  world.md
-  tasks.md
-  report.md
+simulation/
+  seed.md              ← Starting situation (example: ERP rollout)
+  world.md             ← Actors, relationships, rules
+  tasks.md             ← Simulation questions
+  report.md            ← Result template
   agents/
-    planner.md
+    planner.md         ← Role, task, output format
     world-builder.md
     simulator.md
     critic.md
     reporter.md
 ```
 
-Use these five roles:
+All agent files contain **complete role descriptions** with task, inputs, output format, and rules. The example scenario (ERP rollout) is ready to simulate.
 
-1. Planner
-2. World Builder
-3. Simulator
-4. Critic
-5. Reporter
+## The 5 base roles
 
-Then run the workflow in Copilot Chat:
+| # | Role | Task |
+|---|------|------|
+| 1 | **Planner** | Breaks down the problem into steps, identifies uncertainties |
+| 2 | **World Builder** | Builds actors, relationships, and rules |
+| 3 | **Simulator** | Plays through 3 scenarios (conservative, probable, worst case) |
+| 4 | **Critic** | Finds unrealistic assumptions, brings counter-hypotheses |
+| 5 | **Reporter** | Summarizes risks, signals, and recommendations |
 
-1. Put your source material into `seed.md`
-2. Ask the Planner to create the simulation plan
-3. Turn that into `world.md`
-4. Ask the Simulator for multiple scenario paths
-5. Ask the Critic to challenge the assumptions
-6. Ask the Reporter to summarize the outcome in `report.md`
+## Adding custom agents
 
-## Extending the base agents for each simulation type
+The 5 base roles are the starting point. If your simulation needs additional perspectives, add more files under `simulation/agents/`:
 
-You are not limited to the five base roles.
+```text
+agents/procurement.md
+agents/business-owner.md
+agents/approval.md
+agents/logistics.md
+```
 
-If a simulation needs additional viewpoints, add use-case-specific agents. For a **process simulation**, each participant can get its own agent so you can see how subprocesses interact, where handoffs fail, and where incentives or constraints conflict.
-
-Example:
-
-- `agents/procurement.md`
-- `agents/business-owner.md`
-- `agents/approval.md`
-- `agents/logistics.md`
-
-The same rule still applies: **clear role, clear inputs, clear output format**.
+Every agent follows the same pattern: **clear role → clear inputs → clear output format**.
 
 ## What was archived?
 
-The previous, heavier landing-page style documentation from the original MiroFish project has been archived so that the root README stays short and practical.
+All original full-stack code and legacy READMEs now live under `docs/archive/`:
 
-The original codebase is still present in:
+- Old backend & frontend code → `docs/archive/fullstack/`
+- Original README files → `docs/archive/`
 
-- `backend/`
-- `frontend/`
-- `docker-compose.yml`
-- `.env.example`
-
-If you need the original project presentation and setup flow, use the archive:
-
-- [docs/archive/README.md](./docs/archive/README.md)
+Details: [docs/archive/README.md](./docs/archive/README.md)

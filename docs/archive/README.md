@@ -1,24 +1,39 @@
 # Archiv des ursprünglichen MiroFish-Projekts
 
-Dieses Verzeichnis sammelt die frühere, umfangreichere Projektpräsentation des ursprünglichen MiroFish-Repositories, damit die Haupt-README kurz und leichtgewichtig bleiben kann.
+Dieses Verzeichnis enthält alles, was aus dem aktiven Repository hierher verschoben wurde.
+
+## Verzeichnisstruktur
+
+```text
+docs/archive/
+  README.md                  ← diese Datei
+  README-original-zh.md      ← ursprüngliche README (中文)
+  README-original-en.md      ← ursprüngliche README (English)
+  fullstack/                 ← kompletter alter Full-Stack-Code
+    backend/                 ← Python-Backend (FastAPI)
+    frontend/                ← Vue.js-Frontend
+    static/                  ← Bilder und Logos
+    docker-compose.yml
+    Dockerfile
+    .dockerignore
+    .env.example
+    package.json
+    package-lock.json
+```
 
 ## Enthaltene archivierte Dokumente
 
 - [README-original-zh.md](./README-original-zh.md) – ursprüngliche README auf Chinesisch
 - [README-original-en.md](./README-original-en.md) – ursprüngliche README auf Englisch
 
-## Was weiterhin aktiv im Repository liegt
+## Full-Stack-Code
 
-Der ursprüngliche Code wurde **nicht** entfernt, sondern nur aus der Startseite herausgenommen:
-
-- `backend/`
-- `frontend/`
-- `docker-compose.yml`
-- `.env.example`
+Der gesamte ursprüngliche Full-Stack-Code (Backend, Frontend, Docker-Setup) liegt unter `fullstack/`. Falls du den alten Stack wiederherstellen willst, findest du dort alles.
 
 ## Empfohlener Einstieg heute
 
-Wenn du nur das Prinzip nutzen willst und es so leicht wie möglich halten möchtest, gehe stattdessen direkt zur neuen Startseite oder zur deutschen Anleitung:
+Gehe direkt zur Simulation:
 
-- [../README.md](../../README.md)
-- [../VS-CODE-COPILOT-DE.md](../VS-CODE-COPILOT-DE.md)
+- [../../simulation/](../../simulation/) – fertige Vorlage mit 5 Agenten und Beispielszenario
+- [../../README.md](../../README.md) – Startseite
+- [../VS-CODE-COPILOT-DE.md](../VS-CODE-COPILOT-DE.md) – ausführliche Anleitung
