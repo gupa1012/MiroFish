@@ -1,149 +1,83 @@
-# MiroFish – leichtgewichtiger Einstieg
+# MiroFish – sofort starten
 
-Dieses Repository ist jetzt auf einen **leichtgewichtigen Einstieg mit VS Code + GitHub Copilot** ausgerichtet.
-
-Wenn du das ursprüngliche MiroFish-Projekt in deiner Firmenumgebung **nicht installieren darfst**, kannst du trotzdem das **Prinzip** nutzen: ein kleines Set an Rollen, klare Markdown-Dateien und GitHub Copilot als Orchestrierung.
+Dieses Repository enthält eine **fertige Simulationsvorlage** mit 5 Agentenrollen und einem Beispielszenario. Du kannst direkt loslegen.
 
 ## Schnellnavigation
 
-- **Leichtgewichtige Anleitung:** [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md)
-- **Archiv des ursprünglichen Projekts:** [docs/archive/README.md](./docs/archive/README.md)
-- **Archivierte Original-README (中文):** [docs/archive/README-original-zh.md](./docs/archive/README-original-zh.md)
-- **Archived original README (English):** [docs/archive/README-original-en.md](./docs/archive/README-original-en.md)
-- **English overview:** [README-EN.md](./README-EN.md)
+| Was | Wo |
+|---|---|
+| **Simulation starten** | [simulation/](./simulation/) |
+| Ausführliche Anleitung (DE) | [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md) |
+| English overview | [README-EN.md](./README-EN.md) |
+| Archiv (alter Full-Stack-Code & Doku) | [docs/archive/](./docs/archive/) |
 
-## Was ist hier jetzt der empfohlene Weg?
+## 3-Minuten-Start
 
-**Nicht** mehr zuerst das komplette alte Full-Stack-Projekt lokal hochziehen.
+1. **VS Code öffnen**, GitHub Copilot aktivieren.
+2. Ordner `simulation/` öffnen – dort liegt alles bereit.
+3. `seed.md` durchlesen oder mit eigenen Daten füllen.
+4. Copilot Chat öffnen und Schritt für Schritt mit den Rollen arbeiten:
 
-**Sondern zuerst:**
+| Schritt | Rolle | Prompt-Vorlage |
+|---------|-------|----------------|
+| 1 | **Planner** | Öffne `agents/planner.md`, gib Copilot den Inhalt als Anweisung |
+| 2 | **World Builder** | `agents/world-builder.md` → Ergebnis in `world.md` eintragen |
+| 3 | **Simulator** | `agents/simulator.md` → 3 Szenarien erzeugen |
+| 4 | **Critic** | `agents/critic.md` → Szenarien prüfen |
+| 5 | **Reporter** | `agents/reporter.md` → Ergebnis in `report.md` schreiben |
 
-1. VS Code öffnen
-2. GitHub Copilot nutzen
-3. mit **5 klaren Rollen** arbeiten
-4. alles in ein paar Markdown-Dateien dokumentieren
-
-So bekommst du eine deutlich schlankere Variante des MiroFish-Prinzips, ohne die ursprüngliche Infrastruktur vollständig nachbauen zu müssen.
-
-## 5-Minuten-Start
-
-Lege in einem Arbeitsordner diese Struktur an:
+## Was ist in `simulation/` enthalten?
 
 ```text
-copilot-sim/
-  seed.md
-  world.md
-  tasks.md
-  report.md
+simulation/
+  seed.md              ← Ausgangslage (Beispiel: ERP-Einführung)
+  world.md             ← Akteure, Beziehungen, Regeln
+  tasks.md             ← Simulationsfragen
+  report.md            ← Ergebnisvorlage
   agents/
-    planner.md
+    planner.md         ← Rolle, Aufgabe, Ausgabeformat
     world-builder.md
     simulator.md
     critic.md
     reporter.md
 ```
 
-### Bedeutung der Dateien
+Alle Agent-Dateien enthalten **vollständige Rollenbeschreibungen** mit Aufgabe, Eingaben, Ausgabeformat und Regeln. Das Beispielszenario (ERP-Einführung) ist sofort simulierbar.
 
-- `seed.md` – Ausgangslage, Quellen, Kontext
-- `world.md` – Akteure, Beziehungen, Regeln
-- `tasks.md` – deine eigentlichen Simulationsfragen
-- `report.md` – Ergebnis und Empfehlungen
-- `agents/*.md` – wiederverwendbare Rollen-Anweisungen
+## Die 5 Basisrollen
 
-## Die 5 Rollen, die meist reichen
+| # | Rolle | Aufgabe |
+|---|-------|---------|
+| 1 | **Planner** | Zerlegt das Problem in Schritte, benennt Unsicherheiten |
+| 2 | **World Builder** | Baut Akteure, Beziehungen und Regeln auf |
+| 3 | **Simulator** | Spielt 3 Szenarien durch (konservativ, wahrscheinlich, worst case) |
+| 4 | **Critic** | Sucht unrealistische Annahmen, bringt Gegenhypothesen ein |
+| 5 | **Reporter** | Fasst Risiken, Signale und Empfehlungen zusammen |
 
-### 1. Planner
-- zerlegt die Aufgabe in konkrete Schritte
-- benennt Unsicherheiten
+## Eigene Agents ergänzen
 
-### 2. World Builder
-- baut die Mini-Welt aus dem Seed-Material
-- beschreibt Rollen, Interessen und Konflikte
+Die 5 Basisrollen sind der Startpunkt. Wenn deine Simulation zusätzliche Perspektiven braucht, lege einfach weitere Dateien unter `simulation/agents/` an:
 
-### 3. Simulator
-- spielt 3 bis 5 Szenarien durch
-- beschreibt Reaktionen und Ketteneffekte
+```text
+agents/einkauf.md
+agents/fachbereich.md
+agents/freigabe.md
+agents/logistik.md
+```
 
-### 4. Critic
-- sucht unrealistische Annahmen
-- bringt Gegenhypothesen ein
-
-### 5. Reporter
-- fasst die Ergebnisse zusammen
-- priorisiert Risiken, Signale und Empfehlungen
-
-## Flexible Agentenrollen je nach Usecase
-
-Die 5 Basisrollen sind der Startpunkt, aber **nicht** die Obergrenze.
-
-Wenn deine Simulation zusätzliche Perspektiven braucht, kannst du je nach Usecase weitere Agents ergänzen. Bei einer **Prozesssimulation** kann zum Beispiel **jeder Prozessbeteiligte einen eigenen Agent** bekommen, damit sichtbar wird, wie Teilprozesse ineinandergreifen, wo Übergaben scheitern und welche Interessen kollidieren.
-
-Beispiel:
-
-- `agents/einkauf.md`
-- `agents/fachbereich.md`
-- `agents/freigabe.md`
-- `agents/logistik.md`
-
-Das Prinzip bleibt gleich: **klare Rolle, klare Eingaben, klares Ausgabeformat**.
-
-## Konkreter Ablauf in VS Code
-
-1. Schreibe dein Material in `seed.md`.
-2. Bitte Copilot als **Planner**, daraus einen Ablaufplan zu erstellen.
-3. Übernimm das Ergebnis in `world.md`.
-4. Bitte Copilot als **Simulator**, mehrere Zukunftsverläufe durchzuspielen.
-5. Bitte Copilot als **Critic**, die Szenarien anzugreifen.
-6. Bitte Copilot als **Reporter**, ein kompaktes Ergebnis in `report.md` zu schreiben.
-
-Damit hast du bereits eine kleine Multi-Agent-Pipeline – nur ohne schwere lokale Runtime.
-
-## Wann du eine eigene VS Code Extension brauchst
-
-Eine eigene Extension lohnt sich erst, wenn du:
-
-- denselben Ablauf häufig wiederholst
-- Dateien und Vorlagen per Klick erzeugen willst
-- den Prozess teamweit standardisieren willst
-
-Für den Einstieg ist **Copilot + Markdown + 5 Rollen** fast immer die einfachste Lösung.
+Jeder Agent folgt dem gleichen Muster: **klare Rolle → klare Eingaben → klares Ausgabeformat**.
 
 ## Was wurde archiviert?
 
-Die bisherige, umfangreichere Projektpräsentation des ursprünglichen MiroFish-Projekts wurde aus der Startseite herausgenommen und ins Archiv verschoben:
+Der gesamte ursprüngliche Full-Stack-Code und die alten READMEs liegen jetzt unter `docs/archive/`:
 
-- große Projektvorstellung
-- Demo-/Showcase-lastige README-Inhalte
-- ursprüngliche Full-Stack-Einstiegstexte
+- Alter Backend- und Frontend-Code → `docs/archive/fullstack/`
+- Ursprüngliche README-Dateien → `docs/archive/`
 
-Damit bleibt die Haupt-README bewusst kurz, praktisch und auf deinen leichtgewichtigen Anwendungsfall fokussiert.
+Details: [docs/archive/README.md](./docs/archive/README.md)
 
-## Falls du doch den ursprünglichen Stack brauchst
+## Ausführliche Anleitung
 
-Der ursprüngliche Code bleibt im Repository erhalten:
+Die vollständige deutsche Anleitung mit Hintergrund, Mapping zum MiroFish-Prinzip und Tipps für Enterprise-Umgebungen:
 
-- `backend/`
-- `frontend/`
-- `docker-compose.yml`
-- `.env.example`
-
-Wenn du später doch auf den ursprünglichen Stack zurückgehen willst, findest du den alten Einstieg hier:
-
-- [docs/archive/README.md](./docs/archive/README.md)
-
-## Empfehlung
-
-Wenn du **heute** starten willst, beginne mit:
-
-- GitHub Copilot in VS Code
-- `seed.md`
-- `world.md`
-- `tasks.md`
-- `report.md`
-- 5 Basisrollen-Dateien unter `agents/`
-- bei Bedarf zusätzliche Usecase-Agents pro Beteiligtem oder Teilprozess
-
-Die ausführlichere deutsche Anleitung mit Beispiel-Prompts findest du hier:
-
-- [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md)
+→ [docs/VS-CODE-COPILOT-DE.md](./docs/VS-CODE-COPILOT-DE.md)
